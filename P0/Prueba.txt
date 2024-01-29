@@ -1,0 +1,3 @@
+Prueba de creacion
+de un archivo de texto
+ desde VsCode
