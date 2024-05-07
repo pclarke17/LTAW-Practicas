@@ -1,0 +1,43 @@
+/* Estilos generales */
+body {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    background-color:rgb(219, 227, 228);
+}
+
+h1 {
+    text-align: center;
+    color: rgba(251, 165, 45, 0.537);
+}
+
+.productos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border-color: #ccc;
+}
+
+
+
+.producto {
+    width: 30%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.producto img {
+
+    max-width: 100%;
+    height: auto;
+    max-height: 200px; /* Limita la altura máxima de la imagen a 200 píxeles */
+    align-items: center;
+}
+
+/* Estilos específicos para la página de producto */
+/* Agregar si es necesario */

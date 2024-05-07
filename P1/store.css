@@ -1,0 +1,78 @@
+/* styles.css */
+
+/* Estilo general del cuerpo de la página */
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  /* Estilo del encabezado */
+  h1 {
+    text-align: center;
+    color: #000408;
+  }
+  
+  /* Estilo del enlace */
+  a {
+    color: #00eaff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Estilo del contenedor principal */
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-image: url(cars_coffee.jpg);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilo de la barra de navegación */
+  .navbar {
+    background-image: url(cars_coffee.jpg) ;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Estilo de la lista de productos */
+  .product-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Estilo de cada producto en la lista */
+  .product {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 5px;
+    transition: box-shadow 0.3s;
+  }
+  
+  .product:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Estilo del pie de página */
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  

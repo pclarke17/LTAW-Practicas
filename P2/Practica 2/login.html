@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda en línea</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bienvenido a nuestra tienda</h1>
+    <h1>Todos nuestros bolsos están hechos a mano</h1>
+    <div class="productos">
+        <!-- Aquí van los productos -->
+    </div>
+    <div class="login-container" id="loginContainer">
+        <div class="login-popup">
+            <span class="close" onclick="closeLogin()">&times;</span>
+            <h2>Iniciar sesión</h2>
+            <form action="/login" method="POST">
+                <label for="username">Nombre de usuario:</label><br>
+                <input type="text" id="username" name="username"><br>
+                <input type="submit" value="Iniciar sesión">
+            </form>
+        </div>
+    </div>
+    <button class="login-btn" onclick="openLogin()">Iniciar sesión</button>
+    
+    <script>
+        function openLogin() {
+            document.getElementById("loginContainer").style.display = "block";
+        }
+
+        function closeLogin() {
+            document.getElementById("loginContainer").style.display = "none";
+        }
+    </script>
+</body>
+</html>

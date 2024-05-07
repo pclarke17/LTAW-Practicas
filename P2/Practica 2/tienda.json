@@ -1,0 +1,13 @@
+{
+    "usuarios": [
+      { "nombre": "root", "nombre_real": "Administrador", "email": "admin@example.com" },
+      { "nombre": "usuario1", "nombre_real": "Usuario 1", "email": "usuario1@example.com" }
+    ],
+    "productos": [
+      { "nombre": "Bolso azul", "descripcion": "Descripción del Bolso azul", "precio": 35.00, "stock": 100 },
+      { "nombre": "Jardín japones", "descripcion": "Descripción del Jardín japones", "precio": 40.00, "stock": 50 },
+      { "nombre": "Nubes", "descripcion": "Descripción de las Nubes", "precio": 40.00, "stock": 200 }
+    ],
+    "pedidos": []
+  }
+  
