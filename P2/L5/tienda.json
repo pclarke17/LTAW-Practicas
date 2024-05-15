@@ -1,0 +1,43 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Pablo1"
+    },
+    {
+      "id": 2,
+      "nombre": "Marcos28"
+    }
+  ],
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "Modelo Nubes",
+      "precio": 40,
+      "stock": 11
+    },
+    {
+      "id": 2,
+      "nombre": "Modelo jardín japones",
+      "precio": 40,
+      "stock": 7
+    },
+    {
+      "id": 3,
+      "nombre": "Modelo azul",
+      "precio": 35,
+      "stock": 8
+    }
+  ],
+  "pedidos": [
+    {
+      "id": 1,
+      "usuario_id": 1,
+      "productos": [
+        1,
+        2
+      ],
+      "estado": "pendiente"
+    }
+  ]
+}
