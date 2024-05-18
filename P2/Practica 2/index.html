@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">
+            &#9776; <!-- Unicode character for the three horizontal bars -->
+        </div>
+        <nav id="dropdown-menu" class="dropdown-menu">
+            <ul>
+                <li><a href="#" onclick="toggleLogin()">Iniciar sesión</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
     <h1>Bienvenido a nuestra tienda</h1>
     <h1>Todos nuestros bolsos están hechos a mano</h1>
 
@@ -26,17 +37,30 @@
             </a>
             <h2>Jardín japones</h2>
             <p>Precio: $40.00</p>
+        </div>
+        <div class="producto">
+            <a href="productos/producto3.html">
+                <img src="imagenes/nubes.jpg" alt="Modelo Nubes">
+            </a>
+            <h2>Nubes</h2>
+            <p>Precio: $40.00</p>
+        </div>
     </div>
-    <div class="producto">
-        <a href="productos/producto3.html">
-            <img src="imagenes/nubes.jpg" alt="Modelo Nubes">
-        </a>
-        <h2>Nubes</h2>
-        <p>Precio: $40.00</p>
+
+    <div class="login-container" id="loginContainer">
+        <div class="login-popup">
+            <span class="close" onclick="closeLogin()">&times;</span>
+            <h2>Iniciar sesión</h2>
+            <form action="/login" method="POST">
+                <label for="username">Nombre de usuario:</label><br>
+                <input type="text" id="username" name="username" required><br>
+                <label for="password">Contraseña:</label><br>
+                <input type="password" id="password" name="password" required><br>
+                <input type="submit" value="Iniciar sesión">
+            </form>
+        </div>
     </div>
-    <div class="login-container">
-        <a href="login.html" class="login-btn">Iniciar sesión</a>
-    </div>
-   
+    
+    <script src="Desplegable.js"></script>
 </body>
 </html>
