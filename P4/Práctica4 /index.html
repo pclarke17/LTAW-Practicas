@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+  
+</head>
+<body>
+    <div id="chat-container">
+        <div id="info">
+            <p>Node Version: <span id="node-version"></span></p>
+            <p>Chrome Version: <span id="chrome-version"></span></p>
+            <p>Electron Version: <span id="electron-version"></span></p>
+            <p>Chat URL: <span id="chat-url"></span></p>
+        </div>
+        <div id="messages-container"></div>
+        <form id="chat-form">
+            <input type="text" id="message-input" placeholder="Type a message...">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+    <script src="renderer.js"></script>
+</body>
+</html>

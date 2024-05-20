@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="carrito-container">
+        <h1>Carrito de Compras</h1>
+        <div id="carrito"></div>
+        <a href="index.html" class="volver-tienda">Volver a la tienda</a>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sessionId = localStorage.getItem('sessionId');
+            if (!sessionId) {
+                alert('No hay sesión activa. Por favor, inicie sesión primero.');
+                window.location.href = 'index.html'; // Cambia esta URL según la página de inicio de sesión
+                return;
+            }
+
+            fetch(`http://127.0.0.1:9090/ver-carrito?sessionId=${sessionId}`)
+            .then(response => response.json())
+            .then(data => {
+                const carritoDiv = document.getElementById('carrito');
+                if (data.length === 0) {
+                    carritoDiv.innerHTML = '<p>Tu carrito está vacío.</p>';
+                } else {
+                    data.forEach(producto => {
+                        const productoDiv = document.createElement('div');
+                        productoDiv.classList.add('producto');
+                        productoDiv.innerHTML = `
+                            <img src="${producto.imagen}" alt="${producto.nombre}">
+                            <h2>${producto.nombre}</h2>
+                            <p>Precio: $${producto.precio}</p>
+                            <p>Cantidad: ${producto.cantidad}</p>
+                            <p>Total: $${producto.precio * producto.cantidad}</p>
+                        `;
+                        carritoDiv.appendChild(productoDiv);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Ocurrió un error al cargar el carrito.');
+            });
+        });
+    </script>
+</body>
+</html>

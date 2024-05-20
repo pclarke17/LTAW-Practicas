@@ -7,8 +7,8 @@ body {
 }
 
 #chat-container {
-    max-width: 600px;
-    margin: 20px auto;
+    max-width: 900px;
+    margin: 200px auto;
     border: 1px solid #030101;
     border-radius: 10px;
     overflow: hidden;
@@ -58,7 +58,7 @@ button[type="submit"]:hover {
     border-radius: 5px;
     background-color: #007bff;
     color: #fff;
-    max-width: 70%;
+    max-width: 90%;
 }
 
 .own-message {

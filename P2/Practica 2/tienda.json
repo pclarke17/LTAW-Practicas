@@ -1,13 +1,45 @@
 {
-    "usuarios": [
-      { "nombre": "root", "nombre_real": "Administrador", "email": "admin@example.com" },
-      { "nombre": "usuario1", "nombre_real": "Usuario 1", "email": "usuario1@example.com" }
-    ],
-    "productos": [
-      { "nombre": "Bolso azul", "descripcion": "Descripción del Bolso azul", "precio": 35.00, "stock": 100 },
-      { "nombre": "Jardín japones", "descripcion": "Descripción del Jardín japones", "precio": 40.00, "stock": 50 },
-      { "nombre": "Nubes", "descripcion": "Descripción de las Nubes", "precio": 40.00, "stock": 200 }
-    ],
-    "pedidos": []
-  }
-  
+  "usuarios": [
+    {
+      "nombre": "usuario1"
+    },
+    {
+      "nombre": "usuario2"
+    }
+  ],
+  "sesiones": {
+    "4b0c0ac3-1cef-4201-bfe9-41bfc55e848e": "usuario1",
+    "a790f0fd-ef67-4479-b99a-128764097584": "usuario2",
+    "ae4eba49-c623-4c6a-87dc-a2ef5dac5881": "usuario1",
+    "a6758471-afe2-4859-bc50-939e97fb9f3d": "usuario2",
+    "11ac066f-470f-4249-b4a7-08f2f5a093e4": "usuario1",
+    "cf8f5458-3330-4880-811a-9ee36660d76d": "usuario1",
+    "962e7b97-b2b2-4198-a6e9-155c1c7cdbf3": "usuario2",
+    "791fa0f5-1811-4fd2-ad83-6208ccad91b0": "usuario2",
+    "c7bcb45c-3752-403a-85f3-76b12a0e23d7": "usuario2"
+  },
+  "carritos": {
+    "usuario1": [],
+    "usuario2": []
+  },
+  "productos": [
+    {
+      "id": "1",
+      "nombre": "Bolso azul",
+      "precio": 35,
+      "imagen": "imagenes/azul.jpg"
+    },
+    {
+      "id": "2",
+      "nombre": "Jardín japonés",
+      "precio": 40,
+      "imagen": "imagenes/blanco.jpg"
+    },
+    {
+      "id": "3",
+      "nombre": "Nubes",
+      "precio": 40,
+      "imagen": "imagenes/nubes.jpg"
+    }
+  ]
+}

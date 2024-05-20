@@ -4,16 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modelo jardín japonés</title>
-    <link rel="stylesheet" href="product-style.css"> <!-- Corregir la ruta del archivo CSS -->
+    <link rel="stylesheet" href="product-style.css">
 </head>
 <body>
     <div class="producto-container">
         <h1>Modelo jardín japonés</h1>
-        <img src="../imagenes/blanco.jpg" alt="Producto 2" class="producto-imagen"> <!-- Corregir la ruta de la imagen -->
-        <p class="producto-descripcion">Nuestro modelo jardín japonés cuenta con una delicada tela de seda traída de Japón. 
-            La boquilla de este bolso es de acero inoxidable y fuerte para llevar todo tipo de cosas. 
-            Cuenta con dos hebillas en su interior que permiten colocar una cadena para llevarlo.</p>
-        <a href="../index.html" class="volver-tienda">Volver a la tienda</a>
+        <img src="../imagenes/blanco.jpg" alt="Producto 2" class="producto-imagen">
+        <p class="producto-descripcion">Nuestro modelo jardín japonés cuenta con una delicada tela de seda traída de Japón. La boquilla de este bolso es de acero inoxidable y fuerte para llevar todo tipo de cosas. Cuenta con dos hebillas en su interior que permiten colocar una cadena para llevarlo.</p>
+        <div class="cantidad-container">
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" value="1" min="1">
+        </div>
+        <button class="agregar-carrito" onclick="agregarAlCarrito()">Agregar al carrito</button>
+        <a href="index.html" class="volver-tienda">Volver a la tienda</a>
     </div>
+    <script>
+        function agregarAlCarrito() {
+    // Aquí se debería enviar una solicitud POST al servidor para agregar el producto al carrito
+    const sessionId = obtenerCookie('sessionId'); // Obtener el sessionId de la cookie
+    const productId = '1'; // ID del producto
+    const cantidad = 1; // Cantidad del producto a agregar
+
+    const data = new URLSearchParams();
+    data.append('sessionId', sessionId);
+    data.append('productId', productId);
+    data.append('cantidad', cantidad);
+
+    fetch('/agregar-al-carrito', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: data
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.message); // Mostrar mensaje de respuesta del servidor
+        // Aquí se puede redirigir a la página del carrito o mostrar algún mensaje al usuario
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        // Manejar errores de conexión con el servidor
+    });
+}
+
+
+        function obtenerCookie(nombre) {
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                const [key, value] = cookie.trim().split('=');
+                if (key === nombre) {
+                    return value;
+                }
+            }
+            return null;
+        }
+    </script>
+   
+
 </body>
 </html>

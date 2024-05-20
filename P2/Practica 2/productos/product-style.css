@@ -11,7 +11,16 @@ body {
     text-align: center;
 }
 
+/* Estilo del contenedor de cantidad */
+.cantidad-container {
+    margin-bottom: 20px;
+}
 
+/* Estilo del input de cantidad */
+.cantidad-container input[type="number"] {
+    width: 50px;
+    padding: 5px;
+}
 /* Estilo del contenedor del producto */
 .producto-container {
     background-color: #faeaaa;
