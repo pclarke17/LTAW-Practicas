@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo azul</title>
+    <link rel="stylesheet" href="css/product-style.css">
+</head>
+<body>
+    <div class="producto-container">
+        <h1>Modelo azul</h1>
+        <img src="../imagenes/azul.jpg" alt="Producto 1" class="producto-imagen">
+        <h1>$35.00</h1>
+        <p class="producto-descripcion">Nuestro modelo azul cuenta con una delicada tela de seda. La boquilla de este bolso es de acero inoxidable y fuerte para llevar todo tipo de cosas. Cuenta con dos hebillas en su interior que permiten colocar una cadena para llevarlo.</p>
+        <div class="cantidad-container">
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" value="1" min="1">
+        </div>
+        <button class="volver-tienda" onclick="agregarAlCarrito()">Agregar al carrito</button>
+        <a href="../index.html" class="volver-tienda">Volver a la tienda</a>
+    </div>
+    <script>
+        function agregarAlCarrito() {
+            const sessionId = obtenerCookie('sessionId'); 
+            const productId = '1'; 
+            const cantidad = document.getElementById('cantidad').value; 
+
+            const data = new URLSearchParams();
+            data.append('sessionId', sessionId);
+            data.append('productId', productId);
+            data.append('cantidad', cantidad);
+
+            fetch('http://127.0.0.1:9090/agregar-al-carrito', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: data
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.message); 
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        function obtenerCookie(nombre) {
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                const [key, value] = cookie.trim().split('=');
+                if (key === nombre) {
+                    return value;
+                }
+            }
+            return null;
+        }
+</script>
+</body>
+</html>
+

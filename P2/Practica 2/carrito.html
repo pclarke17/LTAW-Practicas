@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/carrito.css">
 </head>
 <body>
     <div class="carrito-container">
@@ -12,16 +12,21 @@
         <div id="carrito"></div>
         <a href="index.html" class="volver-tienda">Volver a la tienda</a>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const sessionId = localStorage.getItem('sessionId');
-            if (!sessionId) {
-                alert('No hay sesión activa. Por favor, inicie sesión primero.');
-                window.location.href = 'index.html'; // Cambia esta URL según la página de inicio de sesión
-                return;
-            }
 
-            fetch(`http://127.0.0.1:9090/ver-carrito?sessionId=${sessionId}`)
+    <script>
+        function vercarrito(){
+            const sessionId = obtenerCookie('sessionId'); 
+            console.log = sessionId
+            const data = new URLSearchParams();
+            data.append('sessionId', sessionId);
+            // Hacer solicitud GET al servidor para obtener los datos del carrito
+            fetch(`http://127.0.0.1:9090/ver-carrito?sessionId=${sessionId}`,{
+            method: 'GET',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: data
+            })
             .then(response => response.json())
             .then(data => {
                 const carritoDiv = document.getElementById('carrito');
@@ -46,7 +51,17 @@
                 console.error('Error:', error);
                 alert('Ocurrió un error al cargar el carrito.');
             });
-        });
+        };
+        function obtenerCookie(nombre) {
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                const [key, value] = cookie.trim().split('=');
+                if (key === nombre) {
+                    return value;
+                }
+            }
+            return null;
+        }
     </script>
 </body>
 </html>
