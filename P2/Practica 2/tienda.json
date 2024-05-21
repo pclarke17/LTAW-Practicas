@@ -1,44 +1,42 @@
 {
   "usuarios": [
     {
-      "nombre": "usuario1"
+      "nombre": "usuario1",
+      "correo": "usuario1@gmail.com"
     },
     {
-      "nombre": "usuario2"
+      "nombre": "usuario2",
+      "correo": "usuario20@gmail.com"
     }
   ],
   "sesiones": {
-    "4882fd4d-6969-49e7-a5de-3923f36423ba": "usuario2"
+   
   },
   "carritos": {
-    "usuario2": [
-      {
-        "id": "1",
-        "nombre": "Bolso azul",
-        "imagen": "imagenes/azul.jpg",
-        "precio": 35,
-        "cantidad": 2
-      }
-    ]
+  
+  
   },
   "productos": [
     {
       "id": "1",
       "nombre": "Bolso azul",
       "precio": 35,
-      "imagen": "imagenes/azul.jpg"
+      "imagen": "imagenes/azul.jpg",
+      "stock": "20"
     },
     {
       "id": "2",
       "nombre": "Jardín japonés",
       "precio": 40,
-      "imagen": "imagenes/blanco.jpg"
+      "imagen": "imagenes/blanco.jpg",
+      "stock": "10"
     },
     {
       "id": "3",
       "nombre": "Nubes",
       "precio": 40,
-      "imagen": "imagenes/nubes.jpg"
+      "imagen": "imagenes/nubes.jpg",
+      "stock": "15"
     }
   ]
 }

@@ -11,17 +11,17 @@ body {
     text-align: center;
 }
 
-/* Estilo del contenedor de cantidad */
+
 .cantidad-container {
     margin-bottom: 20px;
 }
 
-/* Estilo del input de cantidad */
+
 .cantidad-container input[type="number"] {
     width: 50px;
     padding: 5px;
 }
-/* Estilo del contenedor del producto */
+
 .producto-container {
     background-color: #faeaaa;
     padding: 20px;
@@ -32,13 +32,13 @@ body {
     text-align: center;
 }
 
-/* Estilo del título del producto */
+
 .producto-container h1 {
     margin-bottom: 20px;
     color: #333;
 }
 
-/* Estilo de la imagen del producto */
+
 .producto-imagen {
     max-width: 100%;
     height: auto;
@@ -47,13 +47,13 @@ body {
     margin-bottom: 20px;
 }
 
-/* Estilo de la descripción del producto */
+
 .producto-descripcion {
     margin-bottom: 20px;
     color: #666;
 }
 
-/* Estilo del enlace para volver a la tienda */
+
 .volver-tienda {
     display: inline-block;
     padding: 10px 20px;

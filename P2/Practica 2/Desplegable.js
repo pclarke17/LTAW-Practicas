@@ -6,7 +6,7 @@ function toggleMenu() {
 }
 
 function toggleLogin() {
-    const loginContainer = document.getElementById('loginModal'); // Asegúrate de que este ID exista en el HTML
+    const loginContainer = document.getElementById('loginModal'); 
     if (loginContainer) {
         loginContainer.style.display = loginContainer.style.display === 'block' ? 'none' : 'block';
     }
@@ -19,7 +19,7 @@ function closeLogin() {
     }
 }
 
-// Close the dropdown menu if the user clicks outside of it
+// Cerrar menu desplegable si se hace click fuera d el
 window.onclick = function(event) {
     const menu = document.getElementById('dropdown-menu');
     if (!event.target.matches('.menu-icon') && !event.target.closest('.dropdown-menu')) {

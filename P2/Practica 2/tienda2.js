@@ -113,24 +113,24 @@ const server = http.createServer((req, res) => {
                 res.end(JSON.stringify({ message: 'Error interno del servidor', error: error.message }));
             }
         });
-    }else if (filePath === '/ver-carrito' && req.method === 'GET') {
+    } else if (filePath.startsWith('./ver-carrito') && req.method === 'GET') { 
         const params = new URLSearchParams(req.url.split('?')[1]);
         const sessionId = params.get('sessionId');
-    
+
         const data = leerDatos();
         if (!data) {
             res.writeHead(500, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ message: 'Error interno del servidor' }));
             return;
         }
-    
+
         const username = data.sesiones[sessionId];
         if (!username) {
             res.writeHead(401, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ message: 'Sesión no válida' }));
             return;
         }
-    
+
         const carrito = data.carritos[username] || [];
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(carrito));

@@ -5,7 +5,7 @@ const chatForm = document.getElementById('chat-form');
 const messageInput = document.getElementById('message-input');
 const messagesContainer = document.getElementById('messages-container');
 
-// Mostrar el mensaje en el chat
+
 function showMessage(message) {
     const messageElement = document.createElement('div');
     messageElement.classList.add('message');
@@ -16,7 +16,7 @@ function showMessage(message) {
     messagesContainer.appendChild(messageElement);
 }
 
-// Enviar el mensaje al servidor cuando se envíe el formulario
+
 chatForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const message = messageInput.value;
@@ -26,7 +26,7 @@ chatForm.addEventListener('submit', (e) => {
     }
 });
 
-// Escuchar mensajes del servidor y mostrarlos en el chat
+
 socket.on('message', (message) => {
     showMessage(message);
 });

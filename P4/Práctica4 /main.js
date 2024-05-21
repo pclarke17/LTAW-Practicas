@@ -1,6 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
-const server = require('./server'); // Importa el servidor de chat
+const server = require('./server'); 
 
 function createWindow() {
     const mainWindow = new BrowserWindow({

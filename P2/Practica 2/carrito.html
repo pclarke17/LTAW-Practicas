@@ -14,54 +14,59 @@
     </div>
 
     <script>
-        function vercarrito(){
-            const sessionId = obtenerCookie('sessionId'); 
-            console.log = sessionId
-            const data = new URLSearchParams();
-            data.append('sessionId', sessionId);
-            // Hacer solicitud GET al servidor para obtener los datos del carrito
-            fetch(`http://127.0.0.1:9090/ver-carrito?sessionId=${sessionId}`,{
-            method: 'GET',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: data
-            })
-            .then(response => response.json())
-            .then(data => {
-                const carritoDiv = document.getElementById('carrito');
-                if (data.length === 0) {
-                    carritoDiv.innerHTML = '<p>Tu carrito está vacío.</p>';
-                } else {
-                    data.forEach(producto => {
-                        const productoDiv = document.createElement('div');
-                        productoDiv.classList.add('producto');
-                        productoDiv.innerHTML = `
-                            <img src="${producto.imagen}" alt="${producto.nombre}">
-                            <h2>${producto.nombre}</h2>
-                            <p>Precio: $${producto.precio}</p>
-                            <p>Cantidad: ${producto.cantidad}</p>
-                            <p>Total: $${producto.precio * producto.cantidad}</p>
-                        `;
-                        carritoDiv.appendChild(productoDiv);
-                    });
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Ocurrió un error al cargar el carrito.');
-            });
-        };
-        function obtenerCookie(nombre) {
-            const cookies = document.cookie.split(';');
-            for (let cookie of cookies) {
-                const [key, value] = cookie.trim().split('=');
-                if (key === nombre) {
-                    return value;
-                }
+         function obtenerCookie(nombre) {
+            const match = document.cookie.match(new RegExp('(^| )' + nombre + '=([^;]+)'));
+            if (match) {
+                return match[2];
             }
             return null;
         }
+       function vercarrito() {
+    const sessionId = obtenerCookie('sessionId');
+    if (!sessionId) {
+        console.error('No se encontró sessionId en las cookies');
+        return;
+    }
+
+    console.log('Session ID:', sessionId); 
+
+    fetch(`http://127.0.0.1:9090/ver-carrito?sessionId=${sessionId}`, {
+        method: 'GET'
+    })
+    .then(response => response.json())
+    .then(data => {
+        const carritoDiv = document.getElementById('carrito'); 
+        carritoDiv.innerHTML = ''; 
+        if (data.length === 0) {
+            carritoDiv.innerHTML = '<p>Tu carrito está vacío.</p>';
+        } else {
+            data.forEach(producto => {
+                const productoDiv = document.createElement('div');
+                productoDiv.classList.add('producto');
+                productoDiv.innerHTML = `
+                    <img src="${producto.imagen}" alt="${producto.nombre}">
+                    <h2>${producto.nombre}</h2>
+                    <p>Precio: $${producto.precio}</p>
+                    <p>Cantidad: ${producto.cantidad}</p>
+                    <p>Total: $${producto.precio * producto.cantidad}</p>
+                `;
+                carritoDiv.appendChild(productoDiv);
+            });
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Ocurrió un error al cargar el carrito.');
+    });
+}
+
+
+
+
+
+  
+document.addEventListener('DOMContentLoaded', vercarrito);   
+     
     </script>
 </body>
 </html>

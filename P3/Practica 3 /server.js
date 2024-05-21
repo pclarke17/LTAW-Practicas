@@ -9,7 +9,7 @@ const io = socketIO(server);
 
 const PORT = process.env.PORT || 3000;
 
-// Middleware para servir archivos estáticos desde la carpeta 'public'
+
 const publicPath = path.join(__dirname, 'public');
 app.use(express.static(publicPath));
 
@@ -17,18 +17,20 @@ app.use(express.static(publicPath));
 app.get('/', (req, res) => {
     res.sendFile(path.join(publicPath, 'public.html'));
 });
-
+let contador = 0
+function aumentar() { contador += 1; };
+function disminuir() { contador -= 1; };
 // Evento de conexión de un cliente
 io.on('connection', (socket) => {
     console.log('Nuevo usuario conectado');
-
+    aumentar();
     // Mensaje de bienvenida al nuevo usuario
     socket.emit('message', { sender: 'Servidor', content: 'Bienvenido al chat!' });
 
     // Anunciar a los demás usuarios que alguien nuevo se ha conectado
     socket.broadcast.emit('message', { sender: 'Servidor', content: '¡Un nuevo usuario se ha conectado!' });
 
-    // Manejo de mensajes enviados por el cliente
+   
     socket.on('message', (message) => {
         console.log('Mensaje recibido: ', message);
 
@@ -44,6 +46,7 @@ io.on('connection', (socket) => {
     // Manejo de desconexión de un cliente
     socket.on('disconnect', () => {
         console.log('Usuario desconectado');
+        disminuir()
     });
 });
 
@@ -59,7 +62,7 @@ function handleCommand(message, socket) {
             break;
         case '/list':
             const numUsers = Object.keys(io.sockets.sockets).length;
-            socket.emit('message', { sender: 'Servidor', content: `Número de usuarios conectados: ${numUsers}` });
+            socket.emit('message', { sender: 'Servidor', content: `Número de usuarios conectados: ${contador}` });
             break;
         case '/hello':
             socket.emit('message', { sender: 'Servidor', content: 'Hola! ¿Cómo estás?' });
